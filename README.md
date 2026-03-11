@@ -43,8 +43,8 @@ Para garantir um código limpo, moderno e separado por responsabilidades, usamos
 
 1. **Clone o repositório:**
    ```bash
-   git clone <url-do-repositorio>
-   cd teste_tecnico_2
+   git clone https://github.com/RuandersonNunesdeLira/finbot.git
+   cd finbot
    ```
 
 2. **Configure suas chaves (Variáveis de Ambiente):**

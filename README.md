@@ -61,7 +61,11 @@ Para garantir um código limpo, moderno e separado por responsabilidades, usamos
    ```bash
    docker-compose up --build -d
    ```
-   Como conectar com o whatsapp ?
+   
+   Como acessar a API do whatsapp ?
+   nos logs do docker irá aparecer o seu user e password, deve acessar a URL da API do WAHA(http://localhost:3000/dashboard/), e usar as credenciais para se fazer login e efetuar a autorização
+
+   Como conectar o meu whatsapp ?
    O ideal é você ter um número reserva(whatsapp business por exemplo), quando subir o projeto com o comando anterior, nos logs do docker irá aparecer o QR code para ser scanneado, você usa seu número secundário para fazer login nele, depois é só ir na aba "whatsapp da interface" e ele irá encaminhar você para falar diretamente com o bot via whatsapp.
 
 5. **Tudo pronto! Pode acessar:**

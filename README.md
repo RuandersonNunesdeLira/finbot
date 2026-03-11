@@ -61,8 +61,10 @@ Para garantir um código limpo, moderno e separado por responsabilidades, usamos
    ```bash
    docker-compose up --build -d
    ```
+   Como conectar com o whatsapp ?
+   O ideal é você ter um número reserva(whatsapp business por exemplo), quando subir o projeto com o comando anterior, nos logs do docker irá aparecer o QR code para ser scanneado, você usa seu número secundário para fazer login nele, depois é só ir na aba "whatsapp da interface" e ele irá encaminhar você para falar diretamente com o bot via whatsapp.
 
-4. **Tudo pronto! Pode acessar:**
+5. **Tudo pronto! Pode acessar:**
    - **Aplicativo (React):** [http://localhost:5173](http://localhost:5173)
    - **API Backend (FastAPI Swagger):** [http://localhost:8080/docs](http://localhost:8080/docs)
 

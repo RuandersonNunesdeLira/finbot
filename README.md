@@ -1,4 +1,4 @@
-# FinBot — Seu Assistente Financeiro Inteligente 🤖💰
+# FinBot — Seu Assistente Financeiro Inteligente
 
 Seja bem-vindo ao repositório do **FinBot**! Este projeto foi criado para ser um chatbot financeiro completo e inteligente. Ele tira dúvidas sobre educação financeira, acompanha o mercado de ações (B3) e de criptomoedas em tempo real e — o mais legal — **aprende com os seus feedbacks** ajustando o próprio comportamento sozinho.
 
@@ -9,7 +9,7 @@ Seja bem-vindo ao repositório do **FinBot**! Este projeto foi criado para ser u
 
 ---
 
-## 🌟 O Que Ele Faz?
+## O Que Ele Faz?
 
 - **Bate-Papo Inteligente:** Converse naturalmente! Ele utiliza o contexto de uma base de conhecimento privada (ChromaDB) e o poder do LangChain + OpenAI.
 - **Cotações em Tempo Real:** Pergunte o preço atual do Bitcoin ou a cotação da Petrobras. Ele vai lá e busca a informação fresquinha pra você usando integrações (CoinGecko e Brapi).
@@ -18,7 +18,7 @@ Seja bem-vindo ao repositório do **FinBot**! Este projeto foi criado para ser u
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 Para garantir um código limpo, moderno e separado por responsabilidades, usamos:
 
@@ -30,7 +30,7 @@ Para garantir um código limpo, moderno e separado por responsabilidades, usamos
 
 ---
 
-## 🚀 Como Rodar o Projeto
+## Como Rodar o Projeto
 
 É muito simples rodar a aplicação através do Docker.
 
@@ -68,7 +68,7 @@ Para garantir um código limpo, moderno e separado por responsabilidades, usamos
 
 ---
 
-## 🧪 Como Testar as Funcionalidades
+## Como Testar as Funcionalidades
 
 Assim que você acessar a tela da nossa Aplicação em `http://localhost:5173`, notará **três abas principais**:
 
@@ -76,6 +76,6 @@ Assim que você acessar a tela da nossa Aplicação em `http://localhost:5173`, 
 2. **Aba Prompt & Feedback:** Deixe notas para a IA sobre as interações passadas. Quando quiser otimizar o projeto baseado nas suas críticas, aperte em "Process Feedback & Optimize". O LLM analisará os erros e vai redigir uma versão 2.0 do seu coração (System Prompt).
 3. **Aba WhatsApp:** Escaneie o QR Code lá disponível pelo seu WhatsApp ("Aparelhos Conectados") e comece a enviar mensagens pelo número.
 
-> **💡 Dica Bônus | Testes Unitários:** Para a galera que ama ver os bastidores, foram implementados testes automatizados cobrindo os serviços do bot. Basta entrar no diretório raiz do projeto com o interpretador Python ligado nas dependências (`pip install -r requirements.txt`) e rodar um `pytest tests/ -v`.
+> ** Dica Bônus | Testes Unitários:** Para a galera que ama ver os bastidores, foram implementados testes automatizados cobrindo os serviços do bot. Basta entrar no diretório raiz do projeto com o interpretador Python ligado nas dependências (`pip install -r requirements.txt`) e rodar um `pytest tests/ -v`.
 
-Qualquer dúvida ou problema na hora de executar, o código fonte foi divido em camadas visando boas práticas do mercado (rotas HTTP isoladas dos serviços principais e injeções de ferramentas de IA). Muito sucesso e espero que gostem do resultado! 🎉
+Qualquer dúvida ou problema na hora de executar, o código fonte foi divido em camadas visando boas práticas do mercado (rotas HTTP isoladas dos serviços principais e injeções de ferramentas de IA). Muito sucesso e espero que gostem do resultado!

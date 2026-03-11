@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  # Backend (FastAPI)
+  backend:
+    build: .
+    container_name: finbot-backend
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8080 --reload
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+      - WAHA_API_URL=http://waha:3000
+      - WAHA_API_KEY=${WAHA_API_KEY}
+      - ANONYMIZED_TELEMETRY=False
+    volumes:
+      - ./backend:/app/backend
+      - ./data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      - chromadb
+    networks:
+      - finbot-net
+    restart: unless-stopped
+
+  # Frontend (Vite + React)
+  frontend:
+    build: ./frontend
+    container_name: finbot-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - BACKEND_URL=http://backend:8080
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - finbot-net
+    restart: unless-stopped
+
+  # ChromaDB (Vector Store)
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: finbot-chromadb
+    ports:
+
+      - "8000:8000"
+    volumes:
+      - chroma-data:/chroma/chroma
+    networks:
+      - finbot-net
+    restart: unless-stopped
+
+  # WAHA (WhatsApp HTTP API)
+  waha:
+    image: devlikeapro/waha:latest
+    container_name: finbot-waha
+    ports:
+      - "3000:3000"
+    environment:
+      - WAHA_DASHBOARD_ENABLED=true
+
+      - WAHA_API_KEY=${WAHA_API_KEY}
+      - WAHA_DASHBOARD_USERNAME=${WAHA_DASHBOARD_USERNAME:-admin}
+      - WAHA_DASHBOARD_PASSWORD=${WAHA_DASHBOARD_PASSWORD}
+
+      - WHATSAPP_HOOK_URL=http://backend:8080/api/waha/webhook
+      - WHATSAPP_HOOK_EVENTS=message
+    env_file:
+      - .env
+    volumes:
+      - waha-data:/app/.sessions
+    networks:
+      - finbot-net
+    restart: unless-stopped
+
+volumes:
+  chroma-data:
+  waha-data:
+
+networks:
+  finbot-net:
+    driver: bridge
